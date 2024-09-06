@@ -5,3 +5,43 @@ metadata:
   namespace: monitoring
 spec:
   strategy: allInOne
+  allInOne:
+    options:
+      query:
+        base-path: /
+  ingress:
+    enabled: true
+  resources:
+    limits:
+      cpu: 500m
+      memory: 1024Mi
+    requests:
+      cpu: 250m
+      memory: 512Mi
+  query:
+    metricsStorage: {}
+    resources:
+      limits:
+        cpu: 500m
+        memory: 1024Mi
+      requests:
+        cpu: 250m
+        memory: 512Mi
+  sampling:
+    options: {}
+  storage:
+    type: elasticsearch
+    cassandraCreateSchema: {}
+  dependencies:
+    resources: {}
+  elasticsearch:
+    name: elasticsearch
+    storage: {}
+    esIndexCleaner:
+      resources: {}
+    esRollover:
+      resources: {}
+  grpcPlugin:
+    options: {}
+  ui:
+    options: {}
